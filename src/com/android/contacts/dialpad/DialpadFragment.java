@@ -374,6 +374,8 @@ public class DialpadFragment extends Fragment
         mDialpadChooser = (ListView) fragmentView.findViewById(R.id.dialpadChooser);
         mDialpadChooser.setOnItemClickListener(this);
 
+        configureScreenFromIntent(getActivity().getIntent());
+
         return fragmentView;
     }
 
@@ -430,11 +432,45 @@ public class DialpadFragment extends Fragment
     }
 
     /**
-     * Determines whether an add call operation is requested.
-     *
-     * @param intent The intent.
-     * @return {@literal true} if add call operation was requested.  {@literal false} otherwise.
+     * @see #showDialpadChooser(boolean)
      */
+    private static boolean needToShowDialpadChooser(Intent intent, boolean isAddCallMode) {
+        final String action = intent.getAction();
+
+        boolean needToShowDialpadChooser = false;
+
+        if (Intent.ACTION_DIAL.equals(action) || Intent.ACTION_VIEW.equals(action)) {
+            Uri uri = intent.getData();
+            if (uri == null) {
+                // ACTION_DIAL or ACTION_VIEW with no data.
+                // This behaves basically like ACTION_MAIN: If there's
+                // already an active call, bring up an intermediate UI to
+                // make the user confirm what they really want to do.
+                // Be sure *not* to show the dialpad chooser if this is an
+                // explicit "Add call" action, though.
+                if (!isAddCallMode && phoneIsInUse()) {
+                    needToShowDialpadChooser = true;
+                }
+            }
+        } else if (Intent.ACTION_MAIN.equals(action)) {
+            // The MAIN action means we're bringing up a blank dialer
+            // (e.g. by selecting the Home shortcut, or tabbing over from
+            // Contacts or Call log.)
+            //
+            // At this point, IF there's already an active call, there's a
+            // good chance that the user got here accidentally (but really
+            // wanted the in-call dialpad instead).  So we bring up an
+            // intermediate UI to make the user confirm what they really
+            // want to do.
+            if (phoneIsInUse()) {
+                // Log.i(TAG, "resolveIntent(): phone is in use; showing dialpad chooser!");
+                needToShowDialpadChooser = true;
+            }
+        }
+
+        return needToShowDialpadChooser;
+    }
+
     private static boolean isAddCallMode(Intent intent) {
         final String action = intent.getAction();
         if (Intent.ACTION_DIAL.equals(action) || Intent.ACTION_VIEW.equals(action)) {
@@ -449,7 +485,7 @@ public class DialpadFragment extends Fragment
      * Checks the given Intent and changes dialpad's UI state. For example, if the Intent requires
      * the screen to enter "Add Call" mode, this method will show correct UI for the mode.
      */
-    private void configureScreenFromIntent(Intent intent) {
+    public void configureScreenFromIntent(Intent intent) {
         if (!isLayoutReady()) {
             // This happens typically when parent's Activity#onNewIntent() is called while
             // Fragment#onCreateView() isn't called yet, and thus we cannot configure Views at
@@ -462,35 +498,14 @@ public class DialpadFragment extends Fragment
 
         boolean needToShowDialpadChooser = false;
 
-        // Be sure *not* to show the dialpad chooser if this is an
-        // explicit "Add call" action, though.
         final boolean isAddCallMode = isAddCallMode(intent);
         if (!isAddCallMode) {
-
-            // Don't show the chooser when called via onNewIntent() and phone number is present.
-            // i.e. User clicks a telephone link from gmail for example.
-            // In this case, we want to show the dialpad with the phone number.
             final boolean digitsFilled = fillDigitsIfNecessary(intent);
-            if (!(mStartedFromNewIntent && digitsFilled)) {
-
-                final String action = intent.getAction();
-                if (Intent.ACTION_DIAL.equals(action) || Intent.ACTION_VIEW.equals(action)
-                        || Intent.ACTION_MAIN.equals(action)) {
-                    // If there's already an active call, bring up an intermediate UI to
-                    // make the user confirm what they really want to do.
-                    if (phoneIsInUse()) {
-                        needToShowDialpadChooser = true;
-                    }
-                }
-
+            if (!digitsFilled) {
+                needToShowDialpadChooser = needToShowDialpadChooser(intent, isAddCallMode);
             }
         }
-
         showDialpadChooser(needToShowDialpadChooser);
-    }
-
-    public void setStartedFromNewIntent(boolean value) {
-        mStartedFromNewIntent = value;
     }
 
     /**
@@ -523,13 +538,6 @@ public class DialpadFragment extends Fragment
         // Long-pressing zero button will enter '+' instead.
         fragmentView.findViewById(R.id.zero).setOnLongClickListener(this);
 
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        configureScreenFromIntent(getActivity().getIntent());
-        setStartedFromNewIntent(false);
     }
 
     @Override
