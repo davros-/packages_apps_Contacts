@@ -231,8 +231,6 @@ public class DialpadFragment extends Fragment
      */
     private boolean mDigitsFilledByIntent;
 
-    private boolean mStartedFromNewIntent = false;
-
     private static final String PREF_DIGITS_FILLED_BY_INTENT = "pref_digits_filled_by_intent";
 
     @Override
