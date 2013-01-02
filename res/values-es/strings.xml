@@ -580,4 +580,22 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Para llamar al buzón de voz, debes desactivar el modo avión."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Exportar archivos de base de datos"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Más opciones"</string>
+<<<<<<< HEAD
+=======
+
+    <!-- CYANOGENMOD EDITS START -->
+
+    <string name="t9_loading">Cargando\u2026</string>
+    <string name="t9_sort_title">Modo de ordenación T9</string>
+    <string name="t9_sort_summary">Escoger como se filtran los resultados T9</string>
+    <string name="t9_sort_name">Nombres primero</string>
+    <string name="t9_sort_number">Números primero</string>
+    <string name="t9_state_title">Activar marcación T9</string>
+    <string name="t9_state_summary">Activar búsqueda T9 en teclado de marcación</string>
+    <string name="t9_dial_click_title">Llamar al contacto</string>
+    <string name="t9_dial_click_summary">Llamar al contacto seleccionado mediante T9</string>
+    <string name="t9_add_to_contacts">Añadir a contactos</string>
+
+    <!-- CYANOGENMOD ADDITIONS END -->
+>>>>>>> 62a4534... Contacts: Set "t9_default_sort" to translatable = false
 </resources>
