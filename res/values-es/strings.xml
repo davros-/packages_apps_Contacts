@@ -580,8 +580,6 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Para llamar al buzón de voz, debes desactivar el modo avión."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Exportar archivos de base de datos"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Más opciones"</string>
-<<<<<<< HEAD
-=======
 
     <!-- CYANOGENMOD EDITS START -->
 
@@ -597,5 +595,4 @@
     <string name="t9_add_to_contacts">Añadir a contactos</string>
 
     <!-- CYANOGENMOD ADDITIONS END -->
->>>>>>> 62a4534... Contacts: Set "t9_default_sort" to translatable = false
 </resources>
