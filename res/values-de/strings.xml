@@ -641,6 +641,7 @@
         <item quantity="one">1 Sekunde</item>
         <item quantity="other">%d Sekunden</item>
     </plurals>
+
     <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Namensfelder maximieren oder minimieren"</string>
 
 </resources>
