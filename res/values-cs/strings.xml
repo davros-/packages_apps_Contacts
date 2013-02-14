@@ -65,8 +65,8 @@
     <string name="menu_splitAggregate" msgid="8368636463748691868">"Oddělit"</string>
     <string name="menu_editGroup" msgid="5062005185370983720">"Upravit"</string>
     <string name="menu_deleteGroup" msgid="3486380004411482874">"Smazat"</string>
-    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"Nový"</string>
-    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"Nová"</string>
+    <string name="menu_new_contact_action_bar" msgid="7263362129442119188">"Přidat kontakt"</string>
+    <string name="menu_new_group_action_bar" msgid="3520232877587377175">"Přidat skupinu"</string>
     <string name="splitConfirmation_title" msgid="633640935430370530">"Rozdělit kontakt?"</string>
     <string name="splitConfirmation" msgid="740190210499587175">"Tento kontakt bude rozdělen do několika kontaktů."</string>
     <string name="menu_joinAggregate" msgid="5027981918265667970">"Spojit"</string>
@@ -163,6 +163,7 @@
     <string name="contactsGroupsLabel" msgid="2841971472518003524">"Skupiny"</string>
     <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Oblíbené"</string>
 
+    <string name="dialerAllContactsLabel" msgid="1025920923112988336">"Oblíbené kontakty a všechny kontakty"</string>
     <string name="dialerIconLabel" msgid="6500826552823403796">"Telefon"</string>
 
     <string name="dialer_ui_title">Nastavení číselníku</string>
@@ -700,4 +701,61 @@
     <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Chcete-li volat hlasovou schránku, nejdříve vypněte režim V letadle."</string>
     <string name="menu_export_database" msgid="2659719297530170820">"Exportovat soubory databáze"</string>
     <string name="action_menu_overflow_description" msgid="2303272250613084574">"Více možností"</string>
+
+    <string name="menu_set_vib_ration">Nastavit vibraci</string>
+    <string name="callStatsDetailTitle">Detaily statistiky</string>
+    <string name="call_stats">Statistiky hovorů</string>
+    <string name="call_stats_refresh">Obnovit</string>
+    <string name="activity_title_call_stats">Statistiky hovorů</string>
+    <string name="call_stats_nav_all">Vše</string>
+    <string name="call_stats_nav_incoming">Příchozí</string>
+    <string name="call_stats_nav_outgoing">Odchozí</string>
+    <string name="call_stats_nav_missed">Zmeškané</string>
+    <string name="call_stats_incoming">Příchozí: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_outgoing">Odchozí: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_missed">Zmeškané</string>
+    <string name="call_stats_missed_percent">Zmeškané: <xliff:g id="percent">%d</xliff:g>%%</string>
+    <string name="call_stats_header_total">Celkem: <xliff:g id="call_count">%s</xliff:g>, <xliff:g id="duration">%s</xliff:g></string>
+    <string name="call_stats_filter_from">Počáteční datum</string>
+    <string name="call_stats_filter_to">Konečné datum</string>
+    <string name="call_stats_filter_picker_title">Rozsah filtru</string>
+    <string name="date_quick_selection">Rychlý výběr</string>
+    <string name="date_qs_currentmonth">Tento měsíc</string>
+    <string name="date_qs_currentquarter">Toto čtvrtletí</string>
+    <string name="date_qs_currentyear">Tento rok</string>
+    <string name="date_qs_lastweek">Minulý týden</string>
+    <string name="date_qs_lastmonth">Minulý měsíc</string>
+    <string name="date_qs_lastquarter">Minulé čtvrtletí</string>
+    <string name="date_qs_lastyear">Minulý rok</string>
+    <string name="call_stats_date_filter">Přizpůsobit časový rozsah</string>
+    <string name="call_stats_reset_filter">Nulovat časový rozsah</string>
+    <string name="call_stats_sort_by_duration">Řadit dle délky hovoru</string>
+    <string name="call_stats_sort_by_count">Řadit dle počtu hovorů</string>
+    <string-array name="call_stats_duration">
+        <item><xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+        <item><xliff:g id="minutes" example="2 mins">%2$s</xliff:g></item>
+        <item><xliff:g id="minutes" example="2 mins">%2$s</xliff:g> <xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g> <xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g> <xliff:g id="minutes" example="2 mins">%2$s</xliff:g></item>
+        <item><xliff:g id="hours" example="2 hrs">%1$s</xliff:g> <xliff:g id="minutes" example="2 mins">%2$s</xliff:g> <xliff:g id="seconds" example="2 secs">%3$s</xliff:g></item>
+    </string-array>
+    <plurals name="hour">
+        <item quantity="one">1 h</item>
+        <item quantity="other">%d h</item>
+    </plurals>
+    <plurals name="minute">
+        <item quantity="one">1 m</item>
+        <item quantity="other">%d m</item>
+    </plurals>
+    <plurals name="second">
+        <item quantity="one">1 s</item>
+        <item quantity="other">%d s</item>
+    </plurals>
+    <plurals name="call">
+        <item quantity="one">1 hovor</item>
+        <item quantity="few">%d hovory</item>
+        <item quantity="other">%d hovorů</item>
+    </plurals>
+    <string name="expand_collapse_name_fields_description" msgid="8682630859539604311">"Rozbalit nebo sbalit pole jména"</string>
 </resources>
