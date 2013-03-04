@@ -44,6 +44,21 @@
         <item name="contact_browser_background">@android:color/transparent</item>
         <item name="list_item_text_indent">@dimen/contact_browser_list_item_text_indent</item>
         <!-- CallLog -->
+<<<<<<< HEAD
+
+        <item name="call_log_primary_text_color">@color/call_log_primary_text_color</item>
+        <item name="call_log_primary_background_color">@color/call_log_primary_background_color</item>
+        <item name="call_log_secondary_text_color">@color/call_log_secondary_text_color</item>
+        <item name="call_log_secondary_background_color">@color/call_log_secondary_background_color</item>
+        <item name="call_log_header_color">@color/call_log_header_color</item>
+
+        <!-- VoicemailStatus -->
+        <item name="call_log_voicemail_status_height">48dip</item>
+        <item name="call_log_voicemail_status_background_color">@color/call_log_voicemail_status_background_color</item>
+        <item name="call_log_voicemail_status_text_color">@color/call_log_voicemail_status_text_color</item>
+        <item name="call_log_voicemail_status_action_text_color">@color/call_log_voicemail_status_action_text_color</item>
+
+=======
         <item name="call_log_primary_text_color">#FFFFFF</item>
         <item name="call_log_primary_background_color">#000000</item>
         <item name="call_log_secondary_text_color">#888888</item>
@@ -54,6 +69,7 @@
         <item name="call_log_voicemail_status_background_color">#080808</item>
         <item name="call_log_voicemail_status_text_color">#888888</item>
         <item name="call_log_voicemail_status_action_text_color">@android:color/holo_blue_light</item>
+>>>>>>> 72427e7... Inverted contacts app
             <!-- Favorites -->
         <item name="favorites_padding_bottom">?android:attr/actionBarSize</item>
     </style>
@@ -139,7 +155,11 @@
         <item name="android:listViewStyle">@style/ListViewStyle</item>
     </style>
 
+<<<<<<< HEAD
     <style name="PeopleTheme1" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+=======
+    <style name="PeopleTheme" parent="@android:style/Theme.Holo">
+>>>>>>> 72427e7... Inverted contacts app
         <item name="android:actionBarStyle">@style/ContactsActionBarStyle</item>
         <item name="android:actionBarItemBackground">@drawable/action_bar_item_background</item>
         <item name="android:actionBarWidgetTheme">@style/ContactsActionBarTheme</item>
